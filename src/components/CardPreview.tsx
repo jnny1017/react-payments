@@ -12,6 +12,7 @@ export default function CardPreview({ values }: Props) {
         expiryDate: { expiryMonth, expiryYear },
     } = values;
 
+    const concatenatedValues = Object.values(cardNumber).join('');
 
     return (
         <div className="card-box">
@@ -22,6 +23,9 @@ export default function CardPreview({ values }: Props) {
                 </div>
                 <div className="card-bottom">
                     <div className="card-bottom__number">
+                        <span className="card-text">
+                            {formatCardNumber(concatenatedValues)}
+                        </span>
                     </div>
                     <div className="card-bottom__info">
                         <span className="card-text">{ownerName || 'NAME'}</span>
